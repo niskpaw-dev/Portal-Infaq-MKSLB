@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Masjid Al-Noor - Infaq</title>
+    <title>Masjid Kampung Sungai Lang Baru - Infaq</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
@@ -11,10 +11,12 @@
         .text-gold { color: #facc15; }
         .bg-gold { background-color: #facc15; }
         .btn-amt.active { 
-            background-color: rgba(250, 204, 21, 0.2); 
+            background-color: rgba(250, 204, 21, 0.3); 
             border-color: #facc15; 
             color: #facc15; 
         }
+        /* Mengelakkan teks terpilih semasa klik laju */
+        .cursor-pointer { -webkit-tap-highlight-color: transparent; }
     </style>
 </head>
 <body class="bg-masjid text-white font-sans min-h-screen">
@@ -35,57 +37,53 @@
                 <span class="bg-gold text-black text-[10px] font-bold px-3 py-1 rounded-md">UTAMA</span>
                 <h1 class="text-3xl font-bold mt-4 leading-tight">Tabung<br>Pembangunan</h1>
                 <p class="text-gray-300 text-sm mt-2">Sumbangan ikhlas untuk fasa naik taraf fasiliti dan prasarana masjid.</p>
-                <button onclick="showForm('pembangunan')" class="mt-6 w-full bg-gold text-black font-bold py-4 rounded-2xl flex items-center justify-center gap-2 shadow-lg hover:bg-yellow-500 transition">
+                <button onclick="showForm('pembangunan')" class="mt-6 w-full bg-gold text-black font-bold py-4 rounded-2xl flex items-center justify-center gap-2 shadow-lg hover:bg-yellow-500 transition cursor-pointer">
                     Infaq Sekarang <i class="fa-solid fa-money-bill-wave"></i>
                 </button>
             </div>
         </div>
 
         <!-- Prayer Times -->
-        <div class="bg-black/20 rounded-2xl p-4 flex justify-between items-center mb-8 border border-white/5 shadow-inner">
+        <div class="bg-black/20 rounded-2xl p-4 flex justify-between items-center mb-8 border border-white/5">
             <i class="fa-regular fa-clock text-gold text-xl"></i>
             <div class="text-center"><p class="text-[10px] text-gray-400 uppercase">Subuh</p><p class="font-bold text-sm">05:48</p></div>
             <div class="text-center"><p class="text-[10px] text-gray-400 uppercase">Zohor</p><p class="font-bold text-sm">13:15</p></div>
             <div class="text-center"><p class="text-[10px] text-gray-400 uppercase">Asar</p><p class="font-bold text-sm">16:32</p></div>
-            <div class="text-center text-gold"><p class="text-[10px] uppercase text-gold">Maghrib</p><p class="font-bold text-sm">19:12</p></div>
+            <div class="text-center text-gold"><p class="text-[10px] uppercase">Maghrib</p><p class="font-bold text-sm">19:12</p></div>
         </div>
 
         <!-- Options -->
         <h3 class="text-xl font-bold mb-4">Pilihan Infaq</h3>
         <div class="space-y-4">
-            <!-- Item 1 -->
             <div onclick="showForm('kebajikan')" class="bg-white/5 p-4 rounded-2xl flex items-center gap-4 cursor-pointer border border-white/5 hover:bg-white/10 transition">
-                <div class="w-12 h-12 bg-emerald-900 rounded-xl flex items-center justify-center text-gold shadow-lg"><i class="fa-solid fa-heart"></i></div>
+                <div class="w-12 h-12 bg-emerald-900 rounded-xl flex items-center justify-center text-gold"><i class="fa-solid fa-heart"></i></div>
                 <div class="flex-1"><h4 class="font-bold">Tabung Kebajikan</h4><p class="text-[10px] text-gray-400">Bantuan asnaf & fakir miskin</p></div>
                 <i class="fa-solid fa-chevron-right text-gold text-xs"></i>
             </div>
-            <!-- Item 2 -->
             <div onclick="showForm('anak_yatim')" class="bg-white/5 p-4 rounded-2xl flex items-center gap-4 cursor-pointer border border-white/5 hover:bg-white/10 transition">
-                <div class="w-12 h-12 bg-emerald-900 rounded-xl flex items-center justify-center text-gold shadow-lg"><i class="fa-solid fa-child"></i></div>
+                <div class="w-12 h-12 bg-emerald-900 rounded-xl flex items-center justify-center text-gold"><i class="fa-solid fa-child"></i></div>
                 <div class="flex-1"><h4 class="font-bold">Anak Yatim</h4><p class="text-[10px] text-gray-400">Pendidikan & kelestarian hidup</p></div>
                 <i class="fa-solid fa-chevron-right text-gold text-xs"></i>
             </div>
-            <!-- Item 3 -->
             <div onclick="showForm('khairat')" class="bg-white/5 p-4 rounded-2xl flex items-center gap-4 cursor-pointer border border-white/5 hover:bg-white/10 transition">
-                <div class="w-12 h-12 bg-emerald-900 rounded-xl flex items-center justify-center text-gold shadow-lg"><i class="fa-solid fa-mosque"></i></div>
+                <div class="w-12 h-12 bg-emerald-900 rounded-xl flex items-center justify-center text-gold"><i class="fa-solid fa-mosque"></i></div>
                 <div class="flex-1"><h4 class="font-bold">Khairat Kematian</h4><p class="text-[10px] text-gray-400">Pengurusan jenazah qariah</p></div>
                 <i class="fa-solid fa-chevron-right text-gold text-xs"></i>
             </div>
-            <!-- Item 4 -->
             <div onclick="showForm('jumaat')" class="bg-white/5 p-4 rounded-2xl flex items-center gap-4 cursor-pointer border border-white/5 hover:bg-white/10 transition">
-                <div class="w-12 h-12 bg-emerald-900 rounded-xl flex items-center justify-center text-gold shadow-lg"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+                <div class="w-12 h-12 bg-emerald-900 rounded-xl flex items-center justify-center text-gold"><i class="fa-solid fa-hand-holding-dollar"></i></div>
                 <div class="flex-1"><h4 class="font-bold">Sedekah Jumaat</h4><p class="text-[10px] text-gray-400">Sumbangan mingguan umum</p></div>
                 <i class="fa-solid fa-chevron-right text-gold text-xs"></i>
             </div>
         </div>
 
-        <footer class="mt-20 text-center text-gray-500">
+        <footer class="mt-20 text-center">
             <p class="text-gold font-bold text-sm mb-4">Masjid Kampung Sungai Lang Baru</p>
-            <p class="text-[10px]">© 2024 Masjid Al-Noor. All donations are tax-deductible.</p>
+            <p class="text-[10px] text-gray-500">© 2024 Masjid Al-Noor. All donations are tax-deductible.</p>
         </footer>
     </div>
 
-    <!-- PAGE 2: FORM (Duduk di luar Landing) -->
+    <!-- PAGE 2: FORM -->
     <div id="page-form" class="hidden max-w-md mx-auto p-4 min-h-screen flex flex-col">
         <header class="flex items-center py-4 mb-8">
             <i onclick="showLanding()" class="fa-solid fa-arrow-left text-gold text-xl cursor-pointer p-2"></i>
@@ -103,12 +101,12 @@
                 <button onclick="setAmount(100, this)" class="btn-amt border border-emerald-800 py-4 rounded-xl font-bold transition-all">100</button>
             </div>
 
-            <input type="number" id="amt-custom" oninput="clearButtons()" placeholder="RM Jumlah Lain" class="w-full bg-black/40 border border-emerald-800 p-4 rounded-xl mb-4 outline-none focus:border-gold text-gold font-bold text-lg transition">
-            <input type="text" id="nama" placeholder="Nama Penuh (Hamba Allah)" class="w-full bg-black/40 border border-emerald-800 p-4 rounded-xl mb-4 outline-none focus:border-gold transition">
+            <input type="number" id="amt-custom" oninput="clearButtons()" placeholder="RM Jumlah Lain" class="w-full bg-black/40 border border-emerald-800 p-4 rounded-xl mb-4 outline-none focus:border-gold text-gold font-bold text-lg">
+            <input type="text" id="nama" placeholder="Nama Penuh (Hamba Allah)" class="w-full bg-black/40 border border-emerald-800 p-4 rounded-xl mb-4 outline-none focus:border-gold">
             
             <div class="grid grid-cols-2 gap-3 mb-8">
-                <input type="text" id="phone" placeholder="No. Telefon" class="w-full bg-black/40 border border-emerald-800 p-4 rounded-xl outline-none focus:border-gold transition">
-                <input type="email" id="email" placeholder="Emel (Pilihan)" class="w-full bg-black/40 border border-emerald-800 p-4 rounded-xl outline-none focus:border-gold transition">
+                <input type="text" id="phone" placeholder="No. Telefon" class="w-full bg-black/40 border border-emerald-800 p-4 rounded-xl outline-none focus:border-gold">
+                <input type="email" id="email" placeholder="Emel (Pilihan)" class="w-full bg-black/40 border border-emerald-800 p-4 rounded-xl outline-none focus:border-gold">
             </div>
 
             <button onclick="payNow()" id="pay-btn" class="w-full bg-gold text-black font-black py-5 rounded-2xl shadow-xl flex items-center justify-center gap-2 hover:bg-yellow-500 active:scale-95 transition uppercase tracking-widest">
@@ -117,7 +115,16 @@
         </div>
     </div>
 
-    <!-- JAVASCRIPT LOGIC -->
+    <!-- PAGE 3: SUCCESS (Dedicated Section) -->
+    <div id="page-success" class="hidden max-w-md mx-auto p-4 text-center py-20">
+        <div class="w-24 h-24 bg-emerald-500/20 border-2 border-emerald-500 rounded-full flex items-center justify-center mx-auto mb-8 text-emerald-500 text-4xl shadow-xl">
+            <i class="fa-solid fa-check"></i>
+        </div>
+        <h2 class="text-4xl font-black mb-4">Alhamdulillah</h2>
+        <p id="success-msg" class="text-gray-400 mb-10 px-6"></p>
+        <button onclick="window.location.href=window.location.pathname" class="w-full bg-emerald-800 text-white font-bold py-5 rounded-2xl">Kembali Ke Utama</button>
+    </div>
+
     <script>
         const GAS_URL = 'https://script.google.com/macros/s/AKfycbwvz9VQzLDFtKT3LFrhJ4HO0m0RgfQ4mjMOQw7h8gpEtivdiyA5R9Z3lLjIK7lA4brh/exec';
         let currentTabung = '';
@@ -132,19 +139,20 @@
         };
 
         function showForm(tabung) {
-            console.log("Membuka tabung:", tabung); // Debug
+            console.log("Menukar ke tabung:", tabung);
             currentTabung = tabung;
-            const displayField = document.getElementById('selected-tabung');
-            if (displayField) displayField.innerText = tabungNames[tabung];
+            document.getElementById('selected-tabung').innerText = tabungNames[tabung] || "Infaq Masjid";
             
             document.getElementById('page-landing').classList.add('hidden');
             document.getElementById('page-form').classList.remove('hidden');
+            document.getElementById('page-success').classList.add('hidden');
             window.scrollTo(0, 0);
         }
 
         function showLanding() {
             document.getElementById('page-landing').classList.remove('hidden');
             document.getElementById('page-form').classList.add('hidden');
+            document.getElementById('page-success').classList.add('hidden');
         }
 
         function setAmount(amt, btn) {
@@ -173,7 +181,8 @@
                 nama: document.getElementById('nama').value || "Hamba Allah",
                 phone: document.getElementById('phone').value || "0123456789",
                 email: document.getElementById('email').value || "",
-                returnUrl: window.location.origin + window.location.pathname + "?success=true&amt=" + finalAmount
+                // Baiki returnUrl supaya lebih stabil
+                returnUrl: window.location.href.split('?')[0] + "?success=true&amt=" + finalAmount
             };
 
             try {
@@ -185,7 +194,7 @@
                 if(result.status === 'success') {
                     window.location.href = result.payment_url;
                 } else {
-                    throw new Error("Ralat ToyyibPay");
+                    throw new Error();
                 }
             } catch (e) {
                 alert("Ralat menyambung ke server. Sila cuba lagi.");
@@ -194,24 +203,16 @@
             }
         }
 
-        // Handle Success State
-        const params = new URLSearchParams(window.location.search);
-        if(params.has('success')) {
-            document.getElementById('page-landing').classList.add('hidden');
-            document.getElementById('page-form').classList.add('hidden');
-            
-            const successHtml = `
-                <div class="max-w-md mx-auto p-4 text-center py-20">
-                    <div class="w-24 h-24 bg-emerald-500/20 border-2 border-emerald-500 rounded-full flex items-center justify-center mx-auto mb-8 text-emerald-500 text-4xl shadow-xl shadow-emerald-500/20">
-                        <i class="fa-solid fa-check"></i>
-                    </div>
-                    <h2 class="text-4xl font-black mb-4">Alhamdulillah</h2>
-                    <p class="text-gray-400 mb-10">Infaq anda sebanyak RM ${params.get('amt')} berjaya direkodkan.</p>
-                    <button onclick="window.location.href=window.location.pathname" class="w-full bg-emerald-800 text-white font-bold py-5 rounded-2xl">Kembali Ke Utama</button>
-                </div>
-            `;
-            document.body.innerHTML += successHtml;
-        }
+        // Jalankan semasa page load untuk cek status Success
+        window.onload = function() {
+            const params = new URLSearchParams(window.location.search);
+            if(params.has('success')) {
+                document.getElementById('page-landing').classList.add('hidden');
+                document.getElementById('page-form').classList.add('hidden');
+                document.getElementById('page-success').classList.remove('hidden');
+                document.getElementById('success-msg').innerText = `Infaq anda sebanyak RM ${params.get('amt')} berjaya direkodkan. Semoga Allah membalas kebaikan anda.`;
+            }
+        };
     </script>
 </body>
 </html>
