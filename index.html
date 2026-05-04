@@ -46,16 +46,48 @@
         </div>
 
         <!-- Options -->
-        <h3 class="text-xl font-bold mb-4">Pilihan Infaq</h3>
-        <div class="space-y-4">
-            <div onclick="showForm('kebajikan')" class="bg-white/5 p-4 rounded-2xl flex items-center gap-4 cursor-pointer border border-white/5 hover:bg-white/10">
-                <div class="w-12 h-12 bg-emerald-900 rounded-xl flex items-center justify-center text-gold"><i class="fa-solid fa-heart"></i></div>
-                <div class="flex-1"><h4 class="font-bold">Tabung Kebajikan</h4><p class="text-[10px] text-gray-400">Bantuan asnaf & fakir miskin</p></div>
-                <i class="fa-solid fa-chevron-right text-gold"></i>
-            </div>
-            <!-- Ulang untuk tabung lain -->
+<h3 class="text-xl font-bold mb-4">Pilihan Infaq</h3>
+<div class="space-y-4">
+    <!-- Tabung Kebajikan -->
+    <div onclick="showForm('kebajikan')" class="bg-white/5 p-4 rounded-2xl flex items-center gap-4 cursor-pointer border border-white/5 hover:bg-white/10 transition">
+        <div class="w-12 h-12 bg-emerald-900 rounded-xl flex items-center justify-center text-gold"><i class="fa-solid fa-heart"></i></div>
+        <div class="flex-1">
+            <h4 class="font-bold">Tabung Kebajikan</h4>
+            <p class="text-[10px] text-gray-400">Bantuan asnaf & fakir miskin</p>
         </div>
+        <i class="fa-solid fa-chevron-right text-gold text-xs"></i>
     </div>
+
+    <!-- Anak Yatim -->
+    <div onclick="showForm('anak_yatim')" class="bg-white/5 p-4 rounded-2xl flex items-center gap-4 cursor-pointer border border-white/5 hover:bg-white/10 transition">
+        <div class="w-12 h-12 bg-emerald-900 rounded-xl flex items-center justify-center text-gold"><i class="fa-solid fa-child"></i></div>
+        <div class="flex-1">
+            <h4 class="font-bold">Anak Yatim</h4>
+            <p class="text-[10px] text-gray-400">Pendidikan & kelestarian hidup</p>
+        </div>
+        <i class="fa-solid fa-chevron-right text-gold text-xs"></i>
+    </div>
+
+    <!-- Khairat Kematian -->
+    <div onclick="showForm('khairat')" class="bg-white/5 p-4 rounded-2xl flex items-center gap-4 cursor-pointer border border-white/5 hover:bg-white/10 transition">
+        <div class="w-12 h-12 bg-emerald-900 rounded-xl flex items-center justify-center text-gold"><i class="fa-solid fa-mosque"></i></div>
+        <div class="flex-1">
+            <h4 class="font-bold">Khairat Kematian</h4>
+            <p class="text-[10px] text-gray-400">Pengurusan jenazah qariah</p>
+        </div>
+        <i class="fa-solid fa-chevron-right text-gold text-xs"></i>
+    </div>
+
+    <!-- Sedekah Jumaat -->
+    <div onclick="showForm('jumaat')" class="bg-white/5 p-4 rounded-2xl flex items-center gap-4 cursor-pointer border border-white/5 hover:bg-white/10 transition">
+        <div class="w-12 h-12 bg-emerald-900 rounded-xl flex items-center justify-center text-gold"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+        <div class="flex-1">
+            <h4 class="font-bold">Sedekah Jumaat</h4>
+            <p class="text-[10px] text-gray-400">Sumbangan mingguan umum</p>
+        </div>
+        <i class="fa-solid fa-chevron-right text-gold text-xs"></i>
+    </div>
+</div>
 
     <!-- PAGE 2: FORM (HIDDEN BY DEFAULT) -->
     <div id="page-form" class="hidden max-w-md mx-auto p-4 min-h-screen flex flex-col">
@@ -94,12 +126,28 @@
         let currentTabung = '';
         let selectedAmount = 50;
 
-        function showForm(tabung) {
-            currentTabung = tabung;
-            document.getElementById('selected-tabung').innerText = "Tabung " + tabung;
-            document.getElementById('page-landing').classList.add('hidden');
-            document.getElementById('page-form').classList.remove('hidden');
-        }
+        // Mapping nama tabung untuk paparan borang
+const tabungNames = {
+    'pembangunan': 'Tabung Pembangunan',
+    'kebajikan': 'Tabung Kebajikan',
+    'anak_yatim': 'Anak Yatim',
+    'khairat': 'Khairat Kematian',
+    'jumaat': 'Sedekah Jumaat'
+};
+
+function showForm(tabung) {
+    currentTabung = tabung; // Ini akan hantar 'kebajikan'/'khairat' ke GAS
+    
+    // Paparkan nama yang cantik di borang
+    document.getElementById('selected-tabung').innerText = tabungNames[tabung];
+    
+    // Tukar skrin
+    document.getElementById('page-landing').classList.add('hidden');
+    document.getElementById('page-form').classList.remove('hidden');
+    
+    // Scroll ke atas (pilihan)
+    window.scrollTo(0, 0);
+}
 
         function showLanding() {
             document.getElementById('page-landing').classList.remove('hidden');
