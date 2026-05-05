@@ -24,8 +24,9 @@
     <!-- PAGE 1: LANDING -->
     <div id="page-landing" class="max-w-md mx-auto p-4 pb-20">
         <header class="flex justify-between items-center py-4 mb-6">
-            <div class="flex items-center gap-2">
-                <div class="w-8 h-8 bg-gold rounded-md flex items-center justify-center text-masjid font-bold text-black">M</div>
+            <div class="flex items-center gap-3">
+                <!-- LOGO MASJID -->
+                <img src="https://arleta.site/interactivelink/1610/LOGO-MKSLB.png" alt="Logo MKSLB" class="w-12 h-12 object-contain">
                 <span class="font-bold tracking-widest text-sm text-gold">Portal Infaq MKSLB</span>
             </div>
             <i class="fa-regular fa-circle-user text-2xl text-gold"></i>
@@ -43,7 +44,7 @@
             </div>
         </div>
 
-           <!-- Options -->
+        <!-- Options -->
         <h3 class="text-xl font-bold mb-4">Pilihan Infaq</h3>
         <div class="space-y-4">
             <div onclick="showForm('kebajikan')" class="bg-white/5 p-4 rounded-2xl flex items-center gap-4 cursor-pointer border border-white/5 hover:bg-white/10 transition">
@@ -69,7 +70,7 @@
         </div>
 
         <footer class="mt-20 text-center">
-            <p class="text-[10px] text-gray-500">© 2026 Masjid KAmpung Sungai Lang Baru</p>
+            <p class="text-[10px] text-gray-500 uppercase tracking-widest">© 2024 Masjid Kampung Sungai Lang Baru</p>
         </footer>
     </div>
 
@@ -77,7 +78,10 @@
     <div id="page-form" class="hidden max-w-md mx-auto p-4 min-h-screen flex flex-col">
         <header class="flex items-center py-4 mb-8">
             <i onclick="showLanding()" class="fa-solid fa-arrow-left text-gold text-xl cursor-pointer p-2"></i>
-            <span class="flex-1 text-center font-bold text-gold tracking-widest text-sm uppercase">BORANG INFAQ</span>
+            <div class="flex-1 flex justify-center items-center gap-2">
+                <img src="https://arleta.site/interactivelink/1610/LOGO-MKSLB.png" alt="Logo" class="w-8 h-8 object-contain">
+                <span class="font-bold text-gold tracking-widest text-sm uppercase">Borang Infaq</span>
+            </div>
         </header>
 
         <div class="bg-black/20 rounded-3xl p-6 border border-white/5 shadow-2xl">
@@ -105,8 +109,11 @@
         </div>
     </div>
 
-    <!-- PAGE 3: SUCCESS (Dedicated Section) -->
+    <!-- PAGE 3: SUCCESS -->
     <div id="page-success" class="hidden max-w-md mx-auto p-4 text-center py-20">
+        <div class="mb-8 flex justify-center">
+             <img src="https://arleta.site/interactivelink/1610/LOGO-MKSLB.png" alt="Logo" class="w-20 h-20 object-contain">
+        </div>
         <div class="w-24 h-24 bg-emerald-500/20 border-2 border-emerald-500 rounded-full flex items-center justify-center mx-auto mb-8 text-emerald-500 text-4xl shadow-xl">
             <i class="fa-solid fa-check"></i>
         </div>
@@ -129,10 +136,8 @@
         };
 
         function showForm(tabung) {
-            console.log("Menukar ke tabung:", tabung);
             currentTabung = tabung;
             document.getElementById('selected-tabung').innerText = tabungNames[tabung] || "Infaq Masjid";
-            
             document.getElementById('page-landing').classList.add('hidden');
             document.getElementById('page-form').classList.remove('hidden');
             document.getElementById('page-success').classList.add('hidden');
@@ -171,7 +176,6 @@
                 nama: document.getElementById('nama').value || "Hamba Allah",
                 phone: document.getElementById('phone').value || "0123456789",
                 email: document.getElementById('email').value || "",
-                // Baiki returnUrl supaya lebih stabil
                 returnUrl: window.location.href.split('?')[0] + "?success=true&amt=" + finalAmount
             };
 
@@ -193,7 +197,6 @@
             }
         }
 
-        // Jalankan semasa page load untuk cek status Success
         window.onload = function() {
             const params = new URLSearchParams(window.location.search);
             if(params.has('success')) {
