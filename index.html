@@ -3,7 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Masjid Kampung Sungai Lang Baru - Infaq</title>
+    <title>Masjid Kampung Sungai Lang Baru - Portal Infaq</title>
+
+    <!-- FAVICON (Ikon di Tab Browser) -->
+    <link rel="icon" type="image/png" href="https://arleta.site/interactivelink/1610/LOGO-MKSLB.png">
+
+    <!-- PRIMARY META TAGS -->
+    <meta name="title" content="Portal Infaq Masjid Kampung Sungai Lang Baru">
+    <meta name="description" content="Sumbangan ikhlas secara dalam talian untuk pembangunan, kebajikan, anak yatim, dan pengurusan masjid. Mudah, telus & terus ke akaun masjid.">
+
+    <!-- OPEN GRAPH / FACEBOOK / WHATSAPP / TELEGRAM -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://niskpaw-dev.github.io/Portal-Infaq-MKSLB/">
+    <meta property="og:title" content="Portal Infaq Masjid Kampung Sungai Lang Baru">
+    <meta property="og:description" content="Mari berinfaq untuk saham akhirat. Klik untuk menyumbang secara terus ke akaun masjid.">
+    <meta property="og:image" content="https://arleta.site/interactivelink/1610/photo_2026-05-05_08-31-26.jpg">
+
+    <!-- TWITTER -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://niskpaw-dev.github.io/Portal-Infaq-MKSLB/">
+    <meta property="twitter:title" content="Portal Infaq Masjid Kampung Sungai Lang Baru">
+    <meta property="twitter:description" content="Sumbangan ikhlas secara dalam talian untuk pembangunan, kebajikan, anak yatim, dan pengurusan masjid.">
+    <meta property="twitter:image" content="https://arleta.site/interactivelink/1610/photo_2026-05-05_08-31-26.jpg">
+
+    <!-- STYLES -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
@@ -15,7 +38,6 @@
             border-color: #facc15; 
             color: #facc15; 
         }
-        /* Mengelakkan teks terpilih semasa klik laju */
         .cursor-pointer { -webkit-tap-highlight-color: transparent; }
     </style>
 </head>
@@ -25,7 +47,6 @@
     <div id="page-landing" class="max-w-md mx-auto p-4 pb-20">
         <header class="flex justify-between items-center py-4 mb-6">
             <div class="flex items-center gap-3">
-                <!-- LOGO MASJID -->
                 <img src="https://arleta.site/interactivelink/1610/LOGO-MKSLB.png" alt="Logo MKSLB" class="w-12 h-12 object-contain">
                 <span class="font-bold tracking-widest text-sm text-gold">Portal Infaq MKSLB</span>
             </div>
@@ -85,10 +106,10 @@
         </header>
 
         <div class="bg-black/20 rounded-3xl p-6 border border-white/5 shadow-2xl">
-            <h2 class="text-2xl font-bold text-center mb-1">Borang Infaq</h2>
+            <h2 class="text-2xl font-bold text-center mb-1 text-white">Borang Infaq</h2>
             <p id="selected-tabung" class="text-center text-emerald-400 text-sm mb-8 italic font-medium"></p>
 
-            <label class="block text-xs font-bold mb-3 text-gray-400 uppercase">Pilih Jumlah (RM)</label>
+            <label class="block text-xs font-bold mb-3 text-gray-400 uppercase tracking-tighter">Pilih Jumlah (RM)</label>
             <div class="grid grid-cols-3 gap-3 mb-4">
                 <button onclick="setAmount(10, this)" class="btn-amt border border-emerald-800 py-4 rounded-xl font-bold transition-all">10</button>
                 <button onclick="setAmount(50, this)" class="btn-amt active border border-emerald-800 py-4 rounded-xl font-bold transition-all">50</button>
@@ -99,8 +120,8 @@
             <input type="text" id="nama" placeholder="Nama Penuh (Hamba Allah)" class="w-full bg-black/40 border border-emerald-800 p-4 rounded-xl mb-4 outline-none focus:border-gold">
             
             <div class="grid grid-cols-2 gap-3 mb-8">
-                <input type="text" id="phone" placeholder="No. Telefon" class="w-full bg-black/40 border border-emerald-800 p-4 rounded-xl outline-none focus:border-gold">
-                <input type="email" id="email" placeholder="Emel (Pilihan)" class="w-full bg-black/40 border border-emerald-800 p-4 rounded-xl outline-none focus:border-gold">
+                <input type="text" id="phone" placeholder="No. Telefon" class="w-full bg-black/40 border border-emerald-800 p-4 rounded-xl outline-none focus:border-gold transition">
+                <input type="email" id="email" placeholder="Emel (Pilihan)" class="w-full bg-black/40 border border-emerald-800 p-4 rounded-xl outline-none focus:border-gold transition">
             </div>
 
             <button onclick="payNow()" id="pay-btn" class="w-full bg-gold text-black font-black py-5 rounded-2xl shadow-xl flex items-center justify-center gap-2 hover:bg-yellow-500 active:scale-95 transition uppercase tracking-widest">
@@ -119,7 +140,7 @@
         </div>
         <h2 class="text-4xl font-black mb-4">Alhamdulillah</h2>
         <p id="success-msg" class="text-gray-400 mb-10 px-6"></p>
-        <button onclick="window.location.href=window.location.pathname" class="w-full bg-emerald-800 text-white font-bold py-5 rounded-2xl">Kembali Ke Utama</button>
+        <button onclick="window.location.href=window.location.pathname" class="w-full bg-emerald-800 text-white font-bold py-5 rounded-2xl transition">Kembali Ke Utama</button>
     </div>
 
     <script>
