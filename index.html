@@ -200,19 +200,23 @@
                 returnUrl: window.location.href.split('?')[0] + "?success=true&amt=" + finalAmount
             };
 
+            let result;
             try {
                 const response = await fetch(GAS_URL, {
                     method: 'POST',
                     body: JSON.stringify(payload)
                 });
-                const result = await response.json();
+                result = await response.json();
                 if(result.status === 'success') {
                     window.location.href = result.payment_url;
                 } else {
-                    throw new Error();
+                    throw new Error(result.message || 'Unknown error');
                 }
             } catch (e) {
-                alert("Ralat menyambung ke server. Sila cuba lagi.");
+                const errorMsg = (result && result.message) 
+                  ? result.message 
+                  : "Ralat menyambung ke server. Sila cuba lagi.";
+                alert(errorMsg);
                 btn.disabled = false;
                 btn.innerHTML = "<i class='fa-solid fa-hand-holding-heart'></i> Infaq Sekarang";
             }
